@@ -1,4 +1,6 @@
 const express = require('express');
+const routerApi = require('./router/api.js');
+
 const app = express();
 const router = express.Router();
 
@@ -20,6 +22,7 @@ router.get('/sharks',function(req,res){
 
 app.use(express.static(path));
 app.use('/', router);
+app.use('/api', routerApi);
 
 app.listen(port, function () {
   console.log('Example app listening on port 8080!')
